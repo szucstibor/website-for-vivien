@@ -1,15 +1,15 @@
 #face {
     float: left;
-    margin: 10px 20px 0px 20px;
+    margin: 10px 20px 20px 20px;
 }
 
 #story {
-    margin: 10px 100px 0 100px;
-    background:  white;
-    box-shadow: -7px 4px #bebebe;
+    background: #ffffff;
+    margin: 10px 20px 20px 20px;
+    box-shadow: -9px 1px 20px 0px #404040;
 }
 
-#root {
+div::after {
     content: "";
     background: url(https://bubblefootballzone.co.uk/wp-content/uploads/2014/02/grass-football-field-background-87ohnckh.jpg);
     opacity: 0.5;
@@ -23,5 +23,5 @@
 
 p {
     text-align: justify;
-    margin: 20px 10px 10px 20px !important;
+    margin: 0 0 0 20px !important;
 }
