@@ -1,3 +1,3 @@
 cheet('↑ ↑ ↓ ↓ ← → ← → b a', function () {
-    alert("It works!")
+    document.getElementById("admin").click();
 });
