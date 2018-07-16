@@ -1,0 +1,21 @@
+
+.card {
+!important;
+!important;
+    border: 0.1px solid #000;
+!important;
+    margin: 10px;
+}
+
+p {
+    text-align: center;
+}
+
+
+#accept, #decline {
+    margin: 5px;
+}
+
+.btn btn-primary {
+    margin: 15px 15px 15px 15px;
+}
