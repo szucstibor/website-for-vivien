@@ -7,95 +7,89 @@
 
 </head>
 <body>
-<section id="request">
+
+<div th:fragment="request">
     <!-- Modal -->
     <div id="request-modal" class="modal fade" role="dialog">
         <div class="modal-dialog">
 
             <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Make a request!</h4>
-                </div>
-                <div class="modal-body">
-                    <label for="title">Request title</label><br/>
-                    <input id="title" required="required"><br/>
-                    <label for="description">Detalied description of the request</label><br/>
-                    <textarea id="description" required="required"/>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-            </div>
+            <form action="/request" method="post">
+                <div class="modal-content">
 
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Make a request!</h4>
+                    </div>
+                    <div class="modal-body">
+                        <label for="name">Request title</label><br/>
+                        <input id="name" name="name" required="required" maxlength="255" minlength="5"><br/>
+                        <label for="description">Detalied description of the request</label><br/>
+                        <textarea id="description" name="description" required="required" maxlength="255" minlength="5"></textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn" type="submit">Request</button>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
-</section>
-
-
+</div>
 
 <!-- Admin Login modal -->
-<section id="adminLogin">
+<div th:fragment="meme-modal">
     <!-- Modal -->
-    <div id="admin-login-modal" class="modal fade" role="dialog">
+    <div id="meme-modal" class="modal fade" role="dialog">
         <div class="modal-dialog">
 
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Admin Login</h4>
+                    <h4 class="modal-title">Random Meme</h4>
                 </div>
                 <div class="modal-body">
-                    <label for="adminUsername">Username</label><br/>
-                    <input id="adminUsername" required="required"><br/>
-                    <label for="adminPassword">Password</label><br/>
-                    <input id="adminPassword" type="password" required="required"/>
+                    <p>No easter egg here</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
             </div>
-
         </div>
     </div>
-</section>
-
+</div>
 
 
 <!-- Simple user login modal -->
-<section id="login">
+<div th:fragment="login">
     <!-- Modal -->
     <div id="login-modal" class="modal fade" role="dialog">
         <div class="modal-dialog">
-
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Login</h4>
+            <form action="login" method="post" name="f">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Login</h4>
+                    </div>
+                    <div class="modal-body">
+                        <label for="username">Username</label><br/>
+                        <input id="username" name="username" required="required"><br/>
+                        <label for="password">Password</label><br/>
+                        <input id="password" name="password" type="password" required="required"/>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn">Login</button>
+                    </div>
                 </div>
-                <div class="modal-body">
-                    <label for="username">Username</label><br/>
-                    <input id="username" required="required"><br/>
-                    <label for="password">Password</label><br/>
-                    <input id="password" type="password" required="required"/>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-
+            </form>
         </div>
     </div>
-</section>
-
-
+</div>
 
 
 <!-- User registration modal-->
-<section id="userReg">
+<div th:fragment="userReg">
     <!-- Modal -->
     <div id="user-reg-modal" class="modal fade" role="dialog">
         <div class="modal-dialog">
@@ -105,15 +99,18 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Login</h4>
+                        <h4 class="modal-title">Register</h4>
                     </div>
                     <div class="modal-body">
-                        <label for="regUsername">Username</label><br/>
-                        <input id="regUsername" name="regUsername" required="required"><br/>
-                        <label for="regPassword">Password</label><br/>
-                        <input id="regPassword" name="regPassword" type="password" required="required"/><br/>
+                        <label for="userNameRegistrationField">Username</label><br/>
+                        <input id="userNameRegistrationField" maxlength="255" minlength="5" name="userName" required="required"><br/>
+                        <label for="passwordRegistrationField">Password</label><br/>
+                        <input id="passwordRegistrationField" maxlength="255" minlength="5" name="password" type="password" required="required"/><br/>
+                        <label for="matchingPasswordField">Repeat password</label><br/>
+                        <input id="matchingPasswordField" maxlength="255" minlength="5" name="matchingPassword" type="password"
+                               required="required"/><br/>
                         <label for="email">E-mail address</label><br/>
-                        <input id="email" name="email">
+                        <input id="email" name="email" maxlength="255" minlength="5" required="required">
                     </div>
                     <div class="modal-footer">
                         <button class="btn" type="submit">Register</button>
@@ -122,7 +119,7 @@
             </form>
         </div>
     </div>
-</section>
+</div>
 <script src="https://code.jquery.com/jquery-3.2.1.js"
         integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
         crossorigin="anonymous"></script>
