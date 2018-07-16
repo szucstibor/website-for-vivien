@@ -1,17 +1,21 @@
 package org.personal.drawingsite.user;
 
+import org.personal.drawingsite.security.role.Role;
+
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
-// @SequenceGenerator(name = "seq", initialValue = 2, allocationSize = 2)
 public class User {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "user_id")
     private Long id;
 
     @Column(nullable = false, unique = true)
-    private String username;
+    private String userName;
 
     @Column(nullable = false, unique = true)
     private String password;
@@ -19,10 +23,15 @@ public class User {
     @Column(nullable = false, unique = true)
     private String email;
 
-    public User(){};
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roles;
+
+    public User() {
+    }
 
     public User(String username, String password, String email) {
-        this.username = username;
+        this.userName = username;
         this.password = password;
         this.email = email;
     }
@@ -36,11 +45,11 @@ public class User {
     }
 
     public String getUsername() {
-        return username;
+        return userName;
     }
 
     public void setUsername(String username) {
-        this.username = username;
+        this.userName = username;
     }
 
     public String getPassword() {
@@ -58,4 +67,14 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
+
+
 }
